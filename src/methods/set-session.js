@@ -6,7 +6,6 @@ export default (self, login) => {
   const { my_id, access_token, user } = login
 
   window.sessionStorage.setItem('my_id', my_id)
-  window.sessionStorage.setItem('access_token', access_token)
   window.sessionStorage.setItem('username', user)
 
   self.session = login
