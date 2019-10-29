@@ -1,6 +1,6 @@
 import { store } from '@ecomplus/client'
 import md5 from 'md5'
-export default self => (user, hash, storeId = 1) => {
+export default self => (user, password, storeId = 1) => {
   let url = '/_login.json'
   const data = {}
 
@@ -11,7 +11,7 @@ export default self => (user, hash, storeId = 1) => {
     data.username = user
   }
 
-  data.pass_md5_hash = md5(hash)
+  data.pass_md5_hash = md5(password)
 
   return store({
     url: url,
