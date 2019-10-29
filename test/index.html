@@ -14,6 +14,13 @@
 <script src="ecom-auth.min.js"></script>
 <script>
   window.ecomAuth = new EcomAuth()
+  window.ecomAuth.on('login', self => {
+    console.log('Login OK!', self)
+  })
+  window.ecomAuth.on('logout', self => {
+    console.log('Logou Ok!', self)
+  })
+  
 </script>
 
 </html>
