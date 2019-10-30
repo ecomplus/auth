@@ -12,16 +12,14 @@ import newSession from './methods/admin-session'
 import getAuth from './methods/get-auth'
 
 const EcomAuth = function () {
-  this.session = {}
-
+  const session = {}
   const self = this
-
   this.login = (user, password, storeId) => login(self)(user, password, storeId)
-  this.logout = () => logout(self)
-  this.isLogged = () => isLogged(self)
-  this.setSession = data => setSession(self, data)
+  this.logout = () => logout(self, session)
+  this.isLogged = () => isLogged(session)
+  this.setSession = data => setSession(self, session, data)
   this.newSession = () => newSession(self)
-  this.getAuth = () => getAuth(self)
+  this.getAuth = () => getAuth(self, session)
 }
 
 // events emitter

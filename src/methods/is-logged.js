@@ -1,1 +1,1 @@
-export default self => Boolean(self.session.access_token)
+export default session => Boolean(session.session.access_token)

@@ -1,10 +1,9 @@
 import emitter from './../lib/emitter'
 
-export default self => {
+export default (self, session) => {
   // just clears current session
-  self.session = {}
-
+  session.session = {}
   // emit logout event
   emitter.emit('logout', self)
-  return self
+  return session.session
 }

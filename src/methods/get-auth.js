@@ -1,7 +1,7 @@
-export default (self) => {
+export default (self, session) => {
   const { isLogged } = self
   if (isLogged()) {
-    return self.session
+    return session.session.my_id
   }
   return {}
 }

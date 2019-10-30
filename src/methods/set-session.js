@@ -1,12 +1,12 @@
 import emitter from './../lib/emitter'
 
-export default (self, login) => {
-  self.session = {}
+export default (self, session, login) => {
   const { isLogged } = self
-  self.session = login
+  session.session = {}
+  session.session = login
   if (isLogged()) {
     // emit login event
     emitter.emit('login', self)
   }
-  return login
+  return session.session
 }
