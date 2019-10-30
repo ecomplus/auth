@@ -10,6 +10,7 @@ import login from './methods/login'
 import isLogged from './methods/is-logged'
 import newSession from './methods/admin-session'
 import getAuth from './methods/get-auth'
+import apiRequest from './methods/api-request'
 
 const EcomAuth = function () {
   const session = {}
@@ -20,6 +21,7 @@ const EcomAuth = function () {
   this.setSession = data => setSession(self, session, data)
   this.newSession = () => newSession(self)
   this.getAuth = () => getAuth(self, session)
+  this.apiRequest = (url, method, data) => apiRequest(self, session, url, method, data)
 }
 
 // events emitter
