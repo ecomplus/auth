@@ -19,7 +19,7 @@ const EcomAuth = function () {
   this.logout = () => logout(self, session)
   this.isLogged = () => isLogged(session)
   this.setSession = data => setSession(self, session, data)
-  this.newSession = () => newSession(self)
+  this.newSession = () => newSession(self, session)
   this.getAuth = () => getAuth(self, session)
   this.apiRequest = (url, method, data) => apiRequest(self, session, url, method, data)
 }
