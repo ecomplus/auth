@@ -1,7 +1,7 @@
 import { store } from '@ecomplus/client'
 import md5 from 'md5'
 
-export default (self, user, password, storeId = 1) => {
+export default (self, session, user, password, storeId = 1) => {
   let url = '/_login.json'
   const data = {
     pass_md5_hash: md5(password)
