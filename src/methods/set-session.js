@@ -12,5 +12,5 @@ export default (self, session, login) => {
     // emit login event
     emitter.emit('login', session)
   }
-  return session
+  return self
 }
