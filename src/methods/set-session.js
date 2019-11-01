@@ -7,7 +7,9 @@ export default (self, session, data) => {
   session.access_token = login.access_token
   session.store_id = login.storeId
 
-  _config.set('store_id', login.storeId)
+  if (session.store_id > 100) {
+    _config.set('store_id', session.store_id)
+  }
   if (isLogged()) {
     // emit login event
     emitter.emit('login', session)
