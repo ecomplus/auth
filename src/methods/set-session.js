@@ -1,6 +1,6 @@
 import emitter from './../lib/emitter'
 import { _config } from '@ecomplus/utils'
-export default (self, session, login) => {
+export default (self, session, data) => {
   const { isLogged } = self
 
   session.my_id = login.my_id
