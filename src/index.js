@@ -27,7 +27,7 @@ const EcomAuth = function (sessionKey = '_ecom_auth') {
 
   const self = this
 
-  this.login = (user, password, storeId) => login(self)(user, password, storeId)
+  this.login = (user, password, storeId) => login(self, user, password, storeId)
   this.logout = () => logout(self, session)
   this.isLogged = () => isLogged(session)
   this.setSession = data => setSession(self, session, data)

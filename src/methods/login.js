@@ -1,31 +1,32 @@
 import { store } from '@ecomplus/client'
 import md5 from 'md5'
-export default self => (user, password, store_id = 1) => {
+
+export default (self, user, password, storeId = 1) => {
   let url = '/_login.json'
-  const data = {}
+  const data = {
+    pass_md5_hash: md5(password)
+  }
 
   if (/\S+@\S+\.\S+/.test(user)) {
     data.email = user
   } else {
-    url = url + '?username'
+    url += '?username'
     data.username = user
   }
-
-  data.pass_md5_hash = md5(password)
 
   return store({
     url: url,
     method: 'post',
-    storeId: store_id,
-    data: data
+    storeId,
+    data
   })
 
     .then(({ data }) => {
-      store_id = data.store_id
+      storeId = data.store_id
       return store({
         url: '/_authenticate.json',
         method: 'post',
-        storeId: store_id,
+        storeId,
         data: {
           _id: data._id,
           api_key: data.api_key
@@ -34,7 +35,10 @@ export default self => (user, password, store_id = 1) => {
     })
 
     .then(({ data }) => {
-      data = { store_id, user, ...data }
-      return self.setSession(data)
+      return self.setSession({
+        store_id: storeId,
+        user,
+        ...data
+      })
     })
 }
