@@ -1,6 +1,6 @@
 import { store } from '@ecomplus/client'
 import md5 from 'md5'
-export default self => (user, password, storeId = 1) => {
+export default self => (user, password, store_id = 1) => {
   let url = '/_login.json'
   const data = {}
 
@@ -16,26 +16,25 @@ export default self => (user, password, storeId = 1) => {
   return store({
     url: url,
     method: 'post',
-    storeId: storeId,
+    storeId: store_id,
     data: data
   })
 
     .then(({ data }) => {
-      const { store_id, _id, api_key } = data
-      storeId = store_id
+      store_id = data.store_id
       return store({
         url: '/_authenticate.json',
         method: 'post',
         storeId: store_id,
         data: {
-          _id: _id,
-          api_key: api_key
+          _id: data._id,
+          api_key: data.api_key
         }
       })
     })
 
     .then(({ data }) => {
-      data = { storeId, user, ...data }
+      data = { store_id, user, ...data }
       return self.setSession(data)
     })
 }
