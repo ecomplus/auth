@@ -14,12 +14,12 @@ import apiRequest from './methods/api-request'
 
 const sessions = {}
 
-const EcomAuth = function (key = '') {
+const EcomAuth = function (sessionKey = '_ecom_auth') {
   let session
-  if (sessions[key]) {
-    session = sessions[key]
+  if (sessions[sessionKey]) {
+    session = sessions[sessionKey]
   } else {
-    sessions[key] = session = {}
+    sessions[sessionKey] = session = {}
   }
 
   const self = this
@@ -31,6 +31,15 @@ const EcomAuth = function (key = '') {
   this.newAdminSession = () => newAdminSession(self, session)
   this.getSession = () => getSession(self, session)
   this.apiRequest = (url, method, data) => apiRequest(self, session, url, method, data)
+
+  // save instance session key and unique ID
+  self.sessionKey = sessionKey
+  // generate random 32 bytes string
+  self.sessionId = ''
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  for (let i = 0; i < 32; i++) {
+    self.sessionId += possible.charAt(Math.floor(Math.random() * possible.length))
+  }
 }
 
 // events emitter
