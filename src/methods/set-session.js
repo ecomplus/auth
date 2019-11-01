@@ -1,5 +1,6 @@
 import emitter from './../lib/emitter'
 import { _config } from '@ecomplus/utils'
+
 export default (self, session, data) => {
   const { isLogged } = self
 
@@ -15,7 +16,7 @@ export default (self, session, data) => {
 
   if (isLogged()) {
     // emit login event
-    emitter.emit('login', session)
+    emitter.emit('login', self)
   }
 
   return self
