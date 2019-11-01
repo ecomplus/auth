@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 export default (self, session) => {
-  const { isLogged } = self
-
-  if (!isLogged()) {
+  if (!self.isLogged()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }
 
