@@ -9,7 +9,7 @@ import logout from './methods/logout'
 import login from './methods/login'
 import isLogged from './methods/is-logged'
 import newSession from './methods/admin-session'
-import getAuth from './methods/get-auth'
+import getSession from './methods/get-session'
 import apiRequest from './methods/api-request'
 
 const sessions = {}
@@ -27,7 +27,7 @@ const EcomAuth = function (key = '') {
   this.isLogged = () => isLogged(session)
   this.setSession = data => setSession(self, session, data)
   this.newSession = () => newSession(self, session)
-  this.getAuth = () => getAuth(self, session)
+  this.getSession = () => getSession(self, session)
   this.apiRequest = (url, method, data) => apiRequest(self, session, url, method, data)
 }
 
