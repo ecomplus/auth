@@ -12,8 +12,15 @@ import newSession from './methods/admin-session'
 import getAuth from './methods/get-auth'
 import apiRequest from './methods/api-request'
 
-const EcomAuth = function () {
-  const session = {}
+const sessions = {}
+
+const EcomAuth = function (key = '') {
+  let session
+  if (sessions[key]) {
+    session = sessions[key]
+  } else {
+    sessions[key] = session = {}
+  }
   const self = this
   this.login = (user, password, storeId) => login(self)(user, password, storeId)
   this.logout = () => logout(self, session)
