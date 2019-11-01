@@ -3,6 +3,7 @@
  * @author E-Com Club <ti@e-com.club>
  * @license AGPL-3.0
  */
+
 import emitter from './lib/emitter'
 import setSession from './methods/set-session'
 import logout from './methods/logout'
@@ -12,11 +13,13 @@ import newAdminSession from './methods/new-admin-session'
 import getSession from './methods/get-session'
 import apiRequest from './methods/api-request'
 
+// store sessions privately
 const sessions = {}
 
 const EcomAuth = function (sessionKey = '_ecom_auth') {
   let session
   if (sessions[sessionKey]) {
+    // reuse session to perpetue login
     session = sessions[sessionKey]
   } else {
     sessions[sessionKey] = session = {}
