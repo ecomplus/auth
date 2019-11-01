@@ -14,10 +14,12 @@
 <script src="ecom-auth.min.js"></script>
 <script>
   window.ecomAuth = new EcomAuth()
-  window.ecomAuth.on('login', self => {
+  EcomAuth.on('login', self => {
     console.log('Login OK!', self)
+    console.log('Criando sessao')
+    ecomAuth.newSession().then(r => console.log(r))
   })
-  window.ecomAuth.on('logout', self => {
+  EcomAuth.on('logout', self => {
     console.log('Logou Ok!', self)
   })
   
