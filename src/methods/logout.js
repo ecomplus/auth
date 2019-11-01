@@ -5,5 +5,5 @@ export default (self, session) => {
   session.access_token = ''
   // emit logout event
   emitter.emit('logout', self)
-  return session
+  return self
 }
