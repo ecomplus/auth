@@ -8,9 +8,9 @@ export default (self, session, url, method = 'get', data) => {
 
   return store({
     url,
-    storeId: session.session && session.session.store_id,
-    myId: session.session && session.session.my_id,
-    accessToken: session.session && session.session.access_token,
+    storeId: session && session.store_id,
+    myId: session && session.my_id,
+    accessToken: session && session.access_token,
     method,
     data
   })

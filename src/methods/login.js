@@ -22,6 +22,7 @@ export default self => (user, password, storeId = 1) => {
 
     .then(({ data }) => {
       const { store_id, _id, api_key } = data
+      storeId = store_id
       return store({
         url: '/_authenticate.json',
         method: 'post',
@@ -34,7 +35,7 @@ export default self => (user, password, storeId = 1) => {
     })
 
     .then(({ data }) => {
-      data = { user, ...data }
+      data = { storeId, user, ...data }
       return self.setSession(data)
     })
 }

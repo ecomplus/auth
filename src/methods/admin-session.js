@@ -10,9 +10,9 @@ export default (self, session) => {
     url: 'https://admin.e-com.plus/session/new',
     method: 'PUT',
     headers: {
-      'X-Store-ID': session.session.store_id,
-      'X-My-ID': session.session.my_id,
-      'X-Access-Token': session.session.access_token
+      'X-Store-ID': session.store_id,
+      'X-My-ID': session.my_id,
+      'X-Access-Token': session.access_token
     }
   })
 }
