@@ -1,1 +1,1 @@
-export default session => ((Date.now() < new Date(session.expires).valueOf()) && Boolean(session.access_token))
+export default session => (Date.now() < new Date(session.expires).getTime()) && Boolean(session.access_token)
