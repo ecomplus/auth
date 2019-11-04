@@ -1,5 +1,5 @@
 import { store } from '@ecomplus/client'
-import md5 from 'md5'
+import * as md5 from 'blueimp-md5'
 
 export default (self, session, user, password, storeId = 1) => {
   let url = '/_login.json'
