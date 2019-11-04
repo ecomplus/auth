@@ -38,8 +38,9 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  // exclude all pkg dependencies on production by default
-  externals: devMode ? '' : new RegExp('^(' + Object.entries(dependencies).join('|') + ')(/|$)', 'i')
+  externals: devMode ? ''
+    // exclude all pkg dependencies on production by default
+    : new RegExp('^(' + Object.entries(dependencies).map(([pkg]) => pkg).join('|') + ')(/|$)', 'i')
 }
 
 module.exports = devMode
