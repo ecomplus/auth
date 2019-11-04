@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/ecomclub/ecomplus-auth/compare/v0.1.0...v0.1.1) (2019-11-04)
+
+
+### Bug Fixes
+
+* **api-request:** set authentication id correctly to ecomClient ([d59e190](https://github.com/ecomclub/ecomplus-auth/commit/d59e1903a2315cfe9fdb9ab03c90d9c1f51b32c5))
+* myId for authenticated request ([83f2316](https://github.com/ecomclub/ecomplus-auth/commit/83f231637691203d9867530f3d2118c560d6ea15))
+
 ## [0.1.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.0.2...v0.1.0) (2019-11-01)
 
 
