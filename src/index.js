@@ -33,7 +33,7 @@ const EcomAuth = function (sessionKey = '_ecom_auth') {
   this.setSession = data => setSession(self, session, data)
   this.newAdminSession = () => newAdminSession(self, session)
   this.getSession = () => getSession(self, session)
-  this.apiRequest = (url, method, data) => apiRequest(self, session, url, method, data)
+  this.apiRequest = options => apiRequest(self, session, options)
 
   // save instance session key and unique ID
   self.sessionKey = sessionKey
