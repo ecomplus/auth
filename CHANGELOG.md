@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.1.3...v0.2.0) (2019-11-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api-request:** changed apiRequest method arguments
+
+### Bug Fixes
+
+* **api-request:** pass options object to ecomClient.store ([7f857c2](https://github.com/ecomclub/ecomplus-auth/commit/7f857c2b5afd3fa8f5d88e6ff3ea1cb7389faea7))
+
 ### [0.1.3](https://github.com/ecomclub/ecomplus-auth/compare/v0.1.2...v0.1.3) (2019-11-04)
 
 ### [0.1.2](https://github.com/ecomclub/ecomplus-auth/compare/v0.1.1...v0.1.2) (2019-11-04)
