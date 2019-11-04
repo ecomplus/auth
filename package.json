@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/auth",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "JS client for E-Com Plus admin authentication",
   "main": "dist/ecom-auth.min.js",
   "module": "src/index.js",
