@@ -2,6 +2,7 @@
 
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
+const { dependencies } = require('./package.json')
 
 // preset default output object
 const output = {
@@ -37,7 +38,8 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  externals: devMode ? '' : /^(@babel\/runtime|core-js|@ecomplus\/(utils|client)|eventemitter3)/
+  // exclude all pkg dependencies on production by default
+  externals: devMode ? '' : new RegExp('^(' + Object.entries(dependencies).join('|') + ')(/|$)', 'i')
 }
 
 module.exports = devMode
@@ -53,10 +55,20 @@ module.exports = devMode
         filename: output.filename.replace('.min.js', '.root.min.js')
       },
       externals: {
+        axios: {
+          commonjs: 'axios',
+          commonjs2: 'axios',
+          root: 'axios'
+        },
         eventemitter3: {
           commonjs: 'eventemitter3',
           commonjs2: 'eventemitter3',
           root: 'EventEmitter'
+        },
+        'blueimp-md5': {
+          commonjs: 'blueimp-md5',
+          commonjs2: 'blueimp-md5',
+          root: 'md5'
         },
         '@ecomplus/utils': {
           commonjs: '@ecomplus/utils',
