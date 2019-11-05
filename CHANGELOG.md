@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.2.0...v0.3.0) (2019-11-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* 'apiRequest' method removed (to 'requestApi')
+* **api-request:** changed apiRquest method params
+
+### revert
+
+* **api-request:** back to req options separated ([23bbe89](https://github.com/ecomclub/ecomplus-auth/commit/23bbe8944e05a9eaea8dfb4bb5aa70087fcf6723))
+
+
+* rename 'apiRequest' to 'requestApi' ([be9f739](https://github.com/ecomclub/ecomplus-auth/commit/be9f7393037f100b101c38f7108a08bfeef62eea))
+
 ## [0.2.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.1.3...v0.2.0) (2019-11-04)
 
 
