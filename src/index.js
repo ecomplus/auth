@@ -11,7 +11,7 @@ import login from './methods/login'
 import isLogged from './methods/is-logged'
 import newAdminSession from './methods/new-admin-session'
 import getSession from './methods/get-session'
-import apiRequest from './methods/api-request'
+import requestApi from './methods/request-api'
 
 // store sessions privately
 const sessions = {}
@@ -33,7 +33,9 @@ const EcomAuth = function (sessionKey = '_ecom_auth') {
   this.setSession = data => setSession(self, session, data)
   this.newAdminSession = () => newAdminSession(self, session)
   this.getSession = () => getSession(self, session)
-  this.apiRequest = options => apiRequest(self, session, options)
+  this.requestApi = (url, method, data, axiosConfig) => {
+    return requestApi(self, session, url, method, data, axiosConfig)
+  }
 
   // save instance session key and unique ID
   self.sessionKey = sessionKey
