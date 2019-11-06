@@ -1,11 +1,12 @@
 import { store } from '@ecomplus/client'
 
-export default (self, session, url, method = 'get', data) => {
+export default (self, session, url, method = 'get', data, axiosConfig) => {
   if (!self.isLogged()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }
 
   return store({
+    ...axiosConfig,
     url,
     storeId: session && session.store_id,
     authenticationId: session && session.my_id,
