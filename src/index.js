@@ -36,7 +36,7 @@ const EcomAuth = function (sessionKey = '_ecom_auth') {
   this.newAdminSession = () => newAdminSession(self, session)
   this.getSession = () => getSession(self, session)
   this.getAuthenticationId = () => getAuthenticationId(session)
-  this.fetchAuthentication = () => fetchAuthentication(self, session)
+  this.fetchAuthentication = (skipSession) => fetchAuthentication(self, session, skipSession)
   this.requestApi = (url, method, data, axiosConfig) => {
     return requestApi(self, session, url, method, data, axiosConfig)
   }
