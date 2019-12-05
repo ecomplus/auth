@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.3.2...v0.4.0) (2019-11-18)
+
+### [0.3.2](https://github.com/ecomclub/ecomplus-auth/compare/v0.3.1...v0.3.2) (2019-11-17)
+
+### [0.3.1](https://github.com/ecomclub/ecomplus-auth/compare/v0.3.0...v0.3.1) (2019-11-06)
+
+
+### Features
+
+* **fetch-authentication:** fetch Store API and return respective auth ([dcda880](https://github.com/ecomclub/ecomplus-auth/commit/dcda880b3506c941e584542d517b35370da3341a))
+* **fetch-authentication:** save authentication in session for 30s ([d2ea162](https://github.com/ecomclub/ecomplus-auth/commit/d2ea1629aea519c0f6f0b576a1e93a263e07d221))
+* **get-authentication-id:** return session.my_id ([1659bc1](https://github.com/ecomclub/ecomplus-auth/commit/1659bc13e8c31254af2fe9b11aa2ffea24127289))
+* **methods:** [#9](https://github.com/ecomclub/ecomplus-auth/issues/9) ([2c1e95e](https://github.com/ecomclub/ecomplus-auth/commit/2c1e95e5acfe6e33012fdfabbce08431a4bd5c63))
+
+
+### Bug Fixes
+
+* **fetch-authentication:** fix handling authentication unset timeout ([cb0b398](https://github.com/ecomclub/ecomplus-auth/commit/cb0b398a9c3a49c04f8e97b0efa507d0af50ca93))
+
 ## [0.3.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.2.0...v0.3.0) (2019-11-05)
 
 
