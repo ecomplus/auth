@@ -12,6 +12,10 @@ export default (self, session, data) => {
 
   if (session.store_id > 100) {
     _config.set('store_id', session.store_id)
+    // set locale
+    self.fetchAuthentication().then(auth => {
+      _config.set('lang', auth.locale)
+    })
   }
 
   if (isLogged()) {
