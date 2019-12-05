@@ -3,7 +3,7 @@ export default (self, session, skipSession = false) => {
     return Promise.resolve(session.authentication)
   }
 
-  return self.apiRequest(`/authentications/${session.my_id}.json`)
+  return self.requestApi(`/authentications/${session.my_id}.json`)
     .then(({ data }) => {
       session.authentication = data
 
