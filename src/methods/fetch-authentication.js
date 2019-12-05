@@ -6,7 +6,7 @@ export default (self, session, skipSession = false) => {
     return Promise.resolve(session.authentication)
   }
 
-  return self.apiRequest(url).then(({ data }) => {
+  return self.requestApi(url).then(({ data }) => {
     session.authentication = data
     // reset session.authentication
     clearTimeout(timeout)
