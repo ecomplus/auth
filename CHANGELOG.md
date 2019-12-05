@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/ecomclub/ecomplus-auth/compare/v0.4.0...v0.4.1) (2019-12-05)
+
+
+### Features
+
+* **locale:** set lang after login ([#27](https://github.com/ecomclub/ecomplus-auth/issues/27)) ([23375bb](https://github.com/ecomclub/ecomplus-auth/commit/23375bb5702ce8de2c09d3b9da10907662db8cf9))
+
+
+### Bug Fixes
+
+* **fetch-authentication:** fix calling self.requestApi ([612f8f2](https://github.com/ecomclub/ecomplus-auth/commit/612f8f2413976c4545972bf8ecf15b2f26d4ebc4))
+
 ## [0.4.0](https://github.com/ecomclub/ecomplus-auth/compare/v0.3.2...v0.4.0) (2019-11-18)
 
 ### [0.3.2](https://github.com/ecomclub/ecomplus-auth/compare/v0.3.1...v0.3.2) (2019-11-17)
