@@ -30,12 +30,16 @@
     "url": "https://github.com/ecomclub/ecomplus-auth/issues"
   },
   "homepage": "https://github.com/ecomclub/ecomplus-auth#readme",
+  "peerDependencies": {
+    "@ecomplus/utils": "^1.4.1"
+  },
+  "optionalDependencies": {
+    "core-js": "^3.8.2"
+  },
   "dependencies": {
-    "@ecomplus/client": "^2.1.3",
-    "@ecomplus/utils": "^1.4.1",
+    "@ecomplus/client": "^2.1.4",
     "axios": "^0.21.0",
     "blueimp-md5": "^2.18.0",
-    "core-js": "^3.8.2",
     "eventemitter3": "^4.0.7"
   },
   "devDependencies": {
@@ -44,6 +48,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-loader": "^8.2.2",
+    "core-js": "^3.8.2",
     "docdash": "^1.2.0",
     "husky": "^3.1.0",
     "jsdoc": "^3.6.6",
