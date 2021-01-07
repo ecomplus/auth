@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc](https://github.com/ecomclub/ecomplus-auth/compare/v0.4.1...v1.0.0-rc) (2021-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to ^0.21.0 [security] ([#90](https://github.com/ecomclub/ecomplus-auth/issues/90)) ([0b71186](https://github.com/ecomclub/ecomplus-auth/commit/0b7118611c7fd3c18c63ab6de888110d5d5e994e))
+
 ### [0.4.1](https://github.com/ecomclub/ecomplus-auth/compare/v0.4.0...v0.4.1) (2019-12-05)
 
 
