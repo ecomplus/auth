@@ -73,7 +73,7 @@ const EcomAuth = function (storeId, lang) {
     }
   })
 
-  this.login = (userOrEmail, password) => login(ecomAuth, userOrEmail, password)
+  this.login = (userOrEmail, password, isMd5Hash) => login(ecomAuth, userOrEmail, password, isMd5Hash)
 
   this.createEcomplusSession = () => createEcomplusSession(ecomAuth)
 

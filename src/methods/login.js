@@ -1,7 +1,26 @@
 import { store } from '@ecomplus/client'
 import * as md5 from 'blueimp-md5'
 
-export default (self, userOrEmail, password) => {
+/**
+ * @method
+ * @name EcomAuth#login
+ * @description Try to login and authenticate admin with email or username and password.
+ *
+ * @param {string} userOrEmail - Admin username or email address
+ * @param {string} password - Password or MD5 hash
+ * @param {boolean} [isMd5Hash=false] - If password argument is already the MD5 hash string
+ *
+ * @returns {Promise<self|error>}
+ *
+ * @example
+
+ecomAuth.login('leo', '1234567890').then(() => {
+  console.log(ecomAuth.getSession())
+})
+
+ */
+
+export default (self, userOrEmail, password, isMd5Hash) => {
   const { storeId, setSession } = self
 
   let url = '/_login.json'
@@ -20,7 +39,7 @@ export default (self, userOrEmail, password) => {
     data: {
       email,
       username,
-      pass_md5_hash: md5(password)
+      pass_md5_hash: isMd5Hash === true ? password : md5(password)
     }
   })
 

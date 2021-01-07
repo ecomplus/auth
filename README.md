@@ -17,7 +17,7 @@ It's available for both Node.js and browser environments.
 ```js
 import ecomAuth from '@ecomplus/auth'
 
-ecomAuth.login(localStorage.getItem('username'), localStorage.getItem('password'), localStorage.getItem('store_id'))
+ecomAuth.login(localStorage.getItem('username'), localStorage.getItem('password'))
 
 ecomAuth.on('login', self => {
   console.log('Login OK!', self)

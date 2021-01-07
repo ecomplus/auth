@@ -1,6 +1,21 @@
 import { $ecomConfig } from '@ecomplus/utils'
 import emitter from '../lib/emitter'
 
+/**
+ * @method
+ * @name EcomAuth#setSession
+ * @description Set instance session object.
+ *
+ * @param {object} newSession - Session object to save
+ *
+ * @returns {self}
+ *
+ * @example
+
+ecomAuth.setSession(session)
+
+ */
+
 export default (self, newSession) => {
   const { lang, session, checkLogin, fetchAuthentication } = self
 

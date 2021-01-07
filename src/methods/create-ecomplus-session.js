@@ -1,5 +1,18 @@
 import axios from 'axios'
 
+/**
+ * @method
+ * @name EcomAuth#createEcomplusSession
+ * @description Try set E-Com Plus cross domain session after login.
+ *
+ * @returns {Promise<response|error>}
+ *
+ * @example
+
+ecomAuth.createEcomplusSession().then(() => console.log('User session created'))
+
+ */
+
 export default ({ session, checkLogin }) => {
   if (!checkLogin()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
