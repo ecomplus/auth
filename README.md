@@ -21,7 +21,7 @@ ecomAuth.login(localStorage.getItem('username'), localStorage.getItem('password'
 
 ecomAuth.on('login', self => {
   console.log('Login OK!', self)
-  ecomAuth.newSession().then(r => console.log(r))
+  ecomAuth.createEcomplusSession().then(r => console.log(r))
 })
 
 ecomAuth.on('logout', self => {
