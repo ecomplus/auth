@@ -1,32 +1,35 @@
 import { store } from '@ecomplus/client'
 import * as md5 from 'blueimp-md5'
 
-export default (self, session, user, password, storeId = 1) => {
-  let url = '/_login.json'
-  const data = {
-    pass_md5_hash: md5(password)
-  }
+export default (self, userOrEmail, password) => {
+  const { storeId, setSession } = self
 
-  if (/\S+@\S+\.\S+/.test(user)) {
-    data.email = user
+  let url = '/_login.json'
+  let email, username
+  if (/\S+@\S+\.\S+/.test(userOrEmail)) {
+    email = userOrEmail
   } else {
     url += '?username'
-    data.username = user
+    username = userOrEmail
   }
 
   return store({
-    url: url,
+    url,
     method: 'post',
     storeId,
-    data
+    data: {
+      email,
+      username,
+      pass_md5_hash: md5(password)
+    }
   })
 
     .then(({ data }) => {
-      storeId = data.store_id
+      self.storeId = data.store_id
       return store({
         url: '/_authenticate.json',
         method: 'post',
-        storeId,
+        storeId: data.store_id,
         data: {
           _id: data._id,
           api_key: data.api_key
@@ -35,9 +38,10 @@ export default (self, session, user, password, storeId = 1) => {
     })
 
     .then(({ data }) => {
-      return self.setSession({
-        store_id: storeId,
-        user,
+      return setSession({
+        store_id: self.storeId,
+        email,
+        username,
         ...data
       })
     })

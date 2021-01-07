@@ -1,9 +1,7 @@
-import emitter from './../lib/emitter'
+import emitter from '../lib/emitter'
 
-export default (self, session) => {
-  // just clears current session
-  session.access_token = ''
-  // emit logout event
+export default (self) => {
+  self.session.access_token = ''
   emitter.emit('logout', self)
   return self
 }

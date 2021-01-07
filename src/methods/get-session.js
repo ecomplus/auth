@@ -1,4 +1,4 @@
-export default (self, session) => {
+export default ({ session }) => {
   return {
     ...session,
     access_token: null
