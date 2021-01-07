@@ -2,11 +2,9 @@
 
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
-const { dependencies } = require('./package.json')
 
-// preset default output object
 const output = {
-  library: 'EcomAuth',
+  library: 'ecomAuth',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
@@ -14,7 +12,6 @@ const output = {
   globalObject: 'this'
 }
 
-// base Webpack config
 const config = {
   mode: devMode ? 'development' : 'production',
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -37,50 +34,49 @@ const config = {
   stats: {
     colors: true
   },
-  devtool: 'source-map',
-  externals: devMode ? ''
-    // exclude all pkg dependencies on production by default
-    : new RegExp('^(' + Object.entries(dependencies).map(([pkg]) => pkg).join('|') + ')(/|$)', 'i')
+  devtool: 'source-map'
 }
 
-module.exports = devMode
-  // single config object for dev server
-  ? config
-  // production outputs with and without polyfill
-  : [
-    config,
-    {
-      ...config,
-      output: {
-        ...output,
-        filename: output.filename.replace('.min.js', '.root.min.js')
-      },
-      externals: {
-        axios: {
-          commonjs: 'axios',
-          commonjs2: 'axios',
-          root: 'axios'
-        },
-        eventemitter3: {
-          commonjs: 'eventemitter3',
-          commonjs2: 'eventemitter3',
-          root: 'EventEmitter3'
-        },
-        'blueimp-md5': {
-          commonjs: 'blueimp-md5',
-          commonjs2: 'blueimp-md5',
-          root: 'md5'
-        },
-        '@ecomplus/utils': {
-          commonjs: '@ecomplus/utils',
-          commonjs2: '@ecomplus/utils',
-          root: 'ecomUtils'
-        },
-        '@ecomplus/client': {
-          commonjs: '@ecomplus/client',
-          commonjs2: '@ecomplus/client',
-          root: 'ecomClient'
-        }
-      }
+module.exports = devMode ? config : [
+  {
+    ...config,
+    externals: /^(core-js|@ecomplus\/utils|@ecomplus\/client|eventemitter3|axios|blueimp-md5)/i
+  },
+
+  {
+    ...config,
+    output: {
+      ...output,
+      filename: output.filename.replace('.min.js', '.bundle.min.js')
     }
-  ]
+  },
+
+  {
+    ...config,
+    target: 'node',
+    optimization: {
+      minimize: false
+    },
+    output: {
+      ...output,
+      filename: output.filename.replace('.min.js', '.node.js')
+    },
+    externals: /^(@ecomplus\/utils|@ecomplus\/client|eventemitter3|axios|blueimp-md5)/i
+  },
+
+  {
+    ...config,
+    output: {
+      ...output,
+      libraryTarget: 'var',
+      filename: output.filename.replace('.min.js', '.var.min.js')
+    },
+    externals: {
+      '@ecomplus/utils': 'ecomUtils',
+      '@ecomplus/client': 'ecomClient',
+      eventemitter3: 'EventEmitter3',
+      axios: 'axios',
+      'blueimp-md5': 'md5'
+    }
+  }
+]
