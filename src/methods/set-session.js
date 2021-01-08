@@ -1,28 +1,43 @@
-import emitter from './../lib/emitter'
-import { _config } from '@ecomplus/utils'
+import { $ecomConfig } from '@ecomplus/utils'
+import emitter from '../lib/emitter'
 
-export default (self, session, data) => {
-  const { isLogged } = self
+/**
+ * @method
+ * @name EcomAuth#setSession
+ * @description Set instance session object.
+ *
+ * @param {object} newSession - Session object to save
+ *
+ * @returns {self}
+ *
+ * @example
 
-  for (const prop in data) {
-    if (data[prop]) {
-      session[prop] = data[prop]
+ecomAuth.setSession(session)
+
+ */
+
+export default (self, newSession) => {
+  const { lang, session, checkLogin, fetchAuthentication } = self
+
+  for (const prop in newSession) {
+    if (newSession[prop]) {
+      session[prop] = newSession[prop]
     }
   }
-
   if (session.store_id > 100) {
-    _config.set('store_id', session.store_id)
-    // set locale
-    self.fetchAuthentication().then(auth => {
-      if (auth.locale) {
-        _config.set('lang', auth.locale)
-      }
-    })
+    $ecomConfig.set('store_id', session.store_id)
   }
 
-  if (isLogged()) {
-    // emit login event
+  if (checkLogin()) {
     emitter.emit('login', self)
+    if (!lang) {
+      fetchAuthentication().then(auth => {
+        if (auth.locale) {
+          self.lang = session.lang = auth.locale
+          $ecomConfig.set('lang', auth.locale)
+        }
+      })
+    }
   }
 
   return self

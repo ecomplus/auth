@@ -1,18 +1,23 @@
-export default (self, session, skipSession = false) => {
-  if (!skipSession && session.authentication && session.authentication._id) {
-    return Promise.resolve(session.authentication)
-  }
+import fetchAndCache from '../lib/fetch-and-cache'
 
-  return self.requestApi(`/authentications/${session.my_id}.json`)
-    .then(({ data }) => {
-      session.authentication = data
+/**
+ * @method
+ * @name EcomAuth#fetchAuthentication
+ * @description Fetch current user authentication object from Store API.
+ *
+ * @param {boolean} [mustSkipSession=false] - Skips previously fetched result (refresh cache)
+ *
+ * @returns {Promise<data|error>}
+ *
+ * @example
 
-      // save session.authentication
-      clearTimeout(session.unsetAuthenticationTimer)
-      session.unsetAuthenticationTimer = setTimeout(() => {
-        session.authentication = null
-      }, 30000)
+ecomAuth.fetchAuthentication().then(authentication => {
+  console.log(authentication._id)
+})
 
-      return data
-    })
+ */
+
+export default (self, mustSkipSession) => {
+  const url = `/authentications/${self.session.my_id}.json`
+  return fetchAndCache(self, url, mustSkipSession)
 }

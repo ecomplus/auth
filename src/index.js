@@ -1,61 +1,49 @@
 /**
- * https://github.com/ecomclub/ecomplus-auth
- * @author E-Com Club <ti@e-com.club>
- * @license AGPL-3.0
+ * @ecomplus/auth
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the AGPL-3.0 License.
  */
 
-import emitter from './lib/emitter'
-import setSession from './methods/set-session'
-import logout from './methods/logout'
-import login from './methods/login'
-import isLogged from './methods/is-logged'
-import newAdminSession from './methods/new-admin-session'
-import getSession from './methods/get-session'
-import getAuthenticationId from './methods/get-authentication-id'
-import fetchAuthentication from './methods/fetch-authentication'
-import requestApi from './methods/request-api'
+/**
+ * JS client for E-Com Plus admin authentication.
+ * {@link https://github.com/ecomplus/auth GitHub}
+ *
+ * @module @ecomplus/auth
+ * @author E-Com Club <ti@e-com.club>
+ * @return {@link ecomAuth}
+ * @see ecomAuth
+ *
+ * @example
+ * // ES import default
+ * import ecomAuth from '@ecomplus/auth'
+ *
+ * @example
+ * // Optional named ES import for default instance and constructor
+ * import { ecomAuth, EcomAuth } from '@ecomplus/auth'
+ *
+ * @example
+ * // With CommonJS
+ * const ecomAuth = require('@ecomplus/auth')
+ *
+ * @example
+ * <!-- Global `ecomAuth` from CDN on browser -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/auth/dist/ecom-auth.var.min.js"></script>
+ *
+ * @example
+ * <!-- Bundle from CDN with `ecomUtils`, `ecomClient`, `axios`, `EventEmitter3` and `md5` -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/auth/dist/ecom-auth.bundle.min.js"></script>
+ */
 
-// store sessions privately
-const sessions = {}
+import EcomAuth from './constructor'
 
-const EcomAuth = function (sessionKey = '_ecom_auth') {
-  let session
-  if (sessions[sessionKey]) {
-    // reuse session to perpetue login
-    session = sessions[sessionKey]
-  } else {
-    sessions[sessionKey] = session = {}
-  }
+/**
+ * Default `EcomAuth` instance.
+ * @global
+ * @type EcomAuth
+ */
 
-  const self = this
+const ecomAuth = new EcomAuth()
 
-  this.login = (user, password, storeId) => login(self, session, user, password, storeId)
-  this.logout = () => logout(self, session)
-  this.isLogged = () => isLogged(self, session)
-  this.setSession = data => setSession(self, session, data)
-  this.newAdminSession = () => newAdminSession(self, session)
-  this.getSession = () => getSession(self, session)
-  this.getAuthenticationId = () => getAuthenticationId(session)
-  this.fetchAuthentication = (skipSession) => fetchAuthentication(self, session, skipSession)
-  this.requestApi = (url, method, data, axiosConfig) => {
-    return requestApi(self, session, url, method, data, axiosConfig)
-  }
+export default ecomAuth
 
-  // save instance session key and unique ID
-  self.sessionKey = sessionKey
-  // generate random 32 bytes string
-  self.sessionId = ''
-  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  for (let i = 0; i < 32; i++) {
-    self.sessionId += possible.charAt(Math.floor(Math.random() * possible.length))
-  }
-}
-
-// events emitter
-;['on', 'off', 'once'].forEach(method => {
-  EcomAuth[method] = (ev, fn) => {
-    emitter[method](ev, fn)
-  }
-})
-
-export default EcomAuth
+export { ecomAuth, EcomAuth }

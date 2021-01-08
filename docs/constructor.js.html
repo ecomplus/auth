@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>constructor.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomAuth.html">EcomAuth</a><ul class='methods'><li data-type='method'><a href="EcomAuth.html#checkLogin">checkLogin</a></li><li data-type='method'><a href="EcomAuth.html#createEcomplusSession">createEcomplusSession</a></li><li data-type='method'><a href="EcomAuth.html#fetchAuthentication">fetchAuthentication</a></li><li data-type='method'><a href="EcomAuth.html#fetchStore">fetchStore</a></li><li data-type='method'><a href="EcomAuth.html#getAuthenticationId">getAuthenticationId</a></li><li data-type='method'><a href="EcomAuth.html#getSession">getSession</a></li><li data-type='method'><a href="EcomAuth.html#login">login</a></li><li data-type='method'><a href="EcomAuth.html#logout">logout</a></li><li data-type='method'><a href="EcomAuth.html#requestApi">requestApi</a></li><li data-type='method'><a href="EcomAuth.html#setSession">setSession</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_auth.html">@ecomplus/auth</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ecomAuth">ecomAuth</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">constructor.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { $ecomConfig } from '@ecomplus/utils'
+import * as EventEmitter from 'eventemitter3'
+
+import login from './methods/login'
+import createEcomplusSession from './methods/create-ecomplus-session'
+import checkLogin from './methods/check-login'
+import logout from './methods/logout'
+import getAuthenticationId from './methods/get-authentication-id'
+import getSession from './methods/get-session'
+import setSession from './methods/set-session'
+import fetchAuthentication from './methods/fetch-authentication'
+import fetchStore from './methods/fetch-store'
+import requestApi from './methods/request-api'
+
+/**
+ * Construct a new E-Com Plus admin account instance object.
+ * @constructor
+ * @param {number} [storeId=$ecomConfig.get('store_id')] - Preset Store ID number
+ * @param {string} [lang] - Snake case language code
+ *
+ * @example
+
+// Default instance
+const ecomAuth = new EcomAuth()
+
+ * @example
+
+// Optionally defining Store ID and language
+const storeId = 2000
+const lang = 'en_us'
+const customEcomAuth = new EcomAuth(storeId, lang)
+
+ */
+
+const EcomAuth = function (storeId, lang) {
+  const ecomAuth = this
+
+  /**
+   * Construct a new account instance object.
+   * @memberof EcomAuth
+   * @type {function}
+   * @see EcomAuth
+   */
+  ecomAuth.Constructor = EcomAuth
+
+  /**
+   * Respective Store ID number.
+   * @memberof EcomAuth
+   * @type {number}
+   */
+  ecomAuth.storeId = storeId || $ecomConfig.get('store_id')
+
+  /**
+   * Instance language code.
+   * @memberof EcomAuth
+   * @type {string}
+   */
+  ecomAuth.lang = lang
+
+  /**
+   * Authentication session object.
+   * @memberof EcomAuth
+   * @type {object}
+   */
+  ecomAuth.session = {
+    store_id: ecomAuth.storeId
+  }
+
+  const emitter = new EventEmitter()
+  ;['on', 'off', 'once'].forEach(method => {
+    ecomAuth[method] = (ev, fn) => {
+      emitter[method](ev, fn)
+    }
+  })
+
+  this.login = (userOrEmail, password, isMd5Hash) => login(ecomAuth, userOrEmail, password, isMd5Hash)
+
+  this.createEcomplusSession = () => createEcomplusSession(ecomAuth)
+
+  this.checkLogin = () => checkLogin(ecomAuth)
+
+  this.logout = () => logout(ecomAuth)
+
+  this.getAuthenticationId = () => getAuthenticationId(ecomAuth)
+
+  this.getSession = () => getSession(ecomAuth)
+
+  this.setSession = newSession => setSession(ecomAuth, newSession)
+
+  this.fetchAuthentication = mustSkipSession => fetchAuthentication(ecomAuth, mustSkipSession)
+
+  this.fetchStore = mustSkipSession => fetchStore(ecomAuth, mustSkipSession)
+
+  this.requestApi = (url, method, data, axiosConfig) => requestApi(ecomAuth, url, method, data, axiosConfig)
+}
+
+export default EcomAuth
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Jan 07 2021 20:11:40 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

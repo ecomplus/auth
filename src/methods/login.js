@@ -1,32 +1,54 @@
 import { store } from '@ecomplus/client'
 import * as md5 from 'blueimp-md5'
 
-export default (self, session, user, password, storeId = 1) => {
-  let url = '/_login.json'
-  const data = {
-    pass_md5_hash: md5(password)
-  }
+/**
+ * @method
+ * @name EcomAuth#login
+ * @description Try to login and authenticate admin with email or username and password.
+ *
+ * @param {string} userOrEmail - Admin username or email address
+ * @param {string} password - Password or MD5 hash
+ * @param {boolean} [isMd5Hash=false] - If password argument is already the MD5 hash string
+ *
+ * @returns {Promise<self|error>}
+ *
+ * @example
 
-  if (/\S+@\S+\.\S+/.test(user)) {
-    data.email = user
+ecomAuth.login('leo', '1234567890').then(() => {
+  console.log(ecomAuth.getSession())
+})
+
+ */
+
+export default (self, userOrEmail, password, isMd5Hash) => {
+  const { storeId, setSession } = self
+
+  let url = '/_login.json'
+  let email, username
+  if (/\S+@\S+\.\S+/.test(userOrEmail)) {
+    email = userOrEmail
   } else {
     url += '?username'
-    data.username = user
+    username = userOrEmail
   }
 
   return store({
-    url: url,
+    url,
     method: 'post',
     storeId,
-    data
+    data: {
+      email,
+      username,
+      pass_md5_hash: isMd5Hash === true ? password : md5(password)
+    }
   })
 
     .then(({ data }) => {
-      storeId = data.store_id
+      self.storeId = data.store_id
       return store({
         url: '/_authenticate.json',
         method: 'post',
-        storeId,
+        storeId: data.store_id,
         data: {
           _id: data._id,
           api_key: data.api_key
@@ -35,9 +57,10 @@ export default (self, session, user, password, storeId = 1) => {
     })
 
     .then(({ data }) => {
-      return self.setSession({
-        store_id: storeId,
-        user,
+      return setSession({
+        store_id: self.storeId,
+        email,
+        username,
         ...data
       })
     })

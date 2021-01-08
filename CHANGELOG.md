@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.0](https://github.com/ecomclub/ecomplus-auth/compare/v1.0.0-rc...v1.0.0-rc.0) (2021-01-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **create-ecomplus-session:** removed old 'newAdminSession' method
+* **check-login:** removed old 'isLogin' method
+
+### Features
+
+* **fetch-store:** add new 'fetchStore' method with cache ([2d82108](https://github.com/ecomclub/ecomplus-auth/commit/2d8210865fcdd819d0046405feb9851ba26753e9))
+
+
+### Bug Fixes
+
+* **deps:** bump @ecomplus/client to v2 ([adcf75c](https://github.com/ecomclub/ecomplus-auth/commit/adcf75ca64e2f71829559a1f4eeb59a02bc473b3))
+
+
+* **check-login:** rename method to 'checkLogin' ([091a824](https://github.com/ecomclub/ecomplus-auth/commit/091a824b120990a617a49fe7eaef29a1897b7f98))
+* **create-ecomplus-session:** rename to 'createEcomplusSession' ([bda4bc9](https://github.com/ecomclub/ecomplus-auth/commit/bda4bc9fc7d4a843b6057d3fed4fd51b4eb92c3e))
+
 ## [1.0.0-rc](https://github.com/ecomclub/ecomplus-auth/compare/v0.4.1...v1.0.0-rc) (2021-01-07)
 
 
