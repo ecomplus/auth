@@ -12,7 +12,7 @@ console.log(session.my_id, session.store_id)
 
  */
 
-export default ({ session }) => {
+export default ([{ session }]) => {
   return {
     ...session,
     access_token: null

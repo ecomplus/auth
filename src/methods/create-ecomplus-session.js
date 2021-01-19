@@ -13,7 +13,7 @@ ecomAuth.createEcomplusSession().then(() => console.log('User session created'))
 
  */
 
-export default ({ session, checkLogin }) => {
+export default ([{ session, checkLogin }]) => {
   if (!checkLogin()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }

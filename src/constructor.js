@@ -73,25 +73,27 @@ const EcomAuth = function (storeId, lang) {
     }
   })
 
-  this.login = (userOrEmail, password, isMd5Hash) => login(ecomAuth, userOrEmail, password, isMd5Hash)
+  const args = [ecomAuth, emitter]
 
-  this.createEcomplusSession = () => createEcomplusSession(ecomAuth)
+  this.login = (userOrEmail, password, isMd5Hash) => login(args, userOrEmail, password, isMd5Hash)
 
-  this.checkLogin = () => checkLogin(ecomAuth)
+  this.createEcomplusSession = () => createEcomplusSession(args)
 
-  this.logout = () => logout(ecomAuth)
+  this.checkLogin = () => checkLogin(args)
 
-  this.getAuthenticationId = () => getAuthenticationId(ecomAuth)
+  this.logout = () => logout(args)
 
-  this.getSession = () => getSession(ecomAuth)
+  this.getAuthenticationId = () => getAuthenticationId(args)
 
-  this.setSession = newSession => setSession(ecomAuth, newSession)
+  this.getSession = () => getSession(args)
 
-  this.fetchAuthentication = mustSkipSession => fetchAuthentication(ecomAuth, mustSkipSession)
+  this.setSession = newSession => setSession(args, newSession)
 
-  this.fetchStore = mustSkipSession => fetchStore(ecomAuth, mustSkipSession)
+  this.fetchAuthentication = mustSkipSession => fetchAuthentication(args, mustSkipSession)
 
-  this.requestApi = (url, method, data, axiosConfig) => requestApi(ecomAuth, url, method, data, axiosConfig)
+  this.fetchStore = mustSkipSession => fetchStore(args, mustSkipSession)
+
+  this.requestApi = (url, method, data, axiosConfig) => requestApi(args, url, method, data, axiosConfig)
 }
 
 export default EcomAuth

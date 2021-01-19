@@ -1,5 +1,4 @@
 import { $ecomConfig } from '@ecomplus/utils'
-import emitter from '../lib/emitter'
 
 /**
  * @method
@@ -16,7 +15,7 @@ ecomAuth.setSession(session)
 
  */
 
-export default (self, newSession) => {
+export default ([self, emitter], newSession) => {
   const { lang, session, checkLogin, fetchAuthentication } = self
 
   for (const prop in newSession) {
@@ -29,7 +28,14 @@ export default (self, newSession) => {
   }
 
   if (checkLogin()) {
+    /**
+     * @event EcomAuth#login
+     * @type {object}
+     * @property {object} self
+     * @example ecomAuth.on('login', console.log)
+     */
     emitter.emit('login', self)
+
     if (!lang) {
       fetchAuthentication().then(auth => {
         if (auth.locale) {

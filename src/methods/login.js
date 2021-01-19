@@ -20,7 +20,7 @@ ecomAuth.login('leo', '1234567890').then(() => {
 
  */
 
-export default (self, userOrEmail, password, isMd5Hash) => {
+export default ([self], userOrEmail, password, isMd5Hash) => {
   const { storeId, setSession } = self
 
   let url = '/_login.json'

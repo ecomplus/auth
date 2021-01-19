@@ -1,5 +1,3 @@
-import emitter from '../lib/emitter'
-
 /**
  * @method
  * @name EcomAuth#logout
@@ -13,8 +11,16 @@ ecomAuth.logout()
 
  */
 
-export default (self) => {
+export default ([self, emitter]) => {
   self.session.access_token = ''
+
+  /**
+   * @event EcomAuth#logout
+   * @type {object}
+   * @property {object} self
+   * @example ecomAuth.on('logout', console.log)
+   */
   emitter.emit('logout', self)
+
   return self
 }
