@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.2](https://github.com/ecomplus/auth/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* **request-api:** fix parsing base method args ([21a7ca1](https://github.com/ecomplus/auth/commit/21a7ca167ddc6f123e5facf688038c247f3898f9))
+
 ## [1.0.0-rc.1](https://github.com/ecomclub/ecomplus-auth/compare/v1.0.0-rc.0...v1.0.0-rc.1) (2021-01-19)
 
 
