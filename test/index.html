@@ -13,7 +13,6 @@
 </body>
 <script src="ecom-auth.min.js"></script>
 <script>
-  window.ecomAuth = new EcomAuth()
   EcomAuth.on('login', self => {
     console.log('Login OK!', self)
     console.log('Criando sessao')
@@ -22,7 +21,7 @@
   EcomAuth.on('logout', self => {
     console.log('Logou Ok!', self)
   })
-  
+
 </script>
 
 </html>

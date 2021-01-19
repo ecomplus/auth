@@ -22,7 +22,7 @@ ecomAuth.requestApi('/orders/123456789012345678901234.json', 'patch', {
 
  */
 
-export default ({ session, checkLogin }, url, method, data, axiosConfig) => {
+export default ([{ session, checkLogin }], url, method, data, axiosConfig) => {
   if (!checkLogin()) {
     return Promise.reject(new Error('Unauthorized, requires login'))
   }
