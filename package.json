@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/ecomplus-auth.git"
+    "url": "git+https://github.com/ecomplus/auth.git"
   },
   "keywords": [
     "ecomplus",
@@ -27,9 +27,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/ecomclub/ecomplus-auth/issues"
+    "url": "https://github.com/ecomplus/auth/issues"
   },
-  "homepage": "https://github.com/ecomclub/ecomplus-auth#readme",
+  "homepage": "https://github.com/ecomplus/auth#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.4.1"
   },
