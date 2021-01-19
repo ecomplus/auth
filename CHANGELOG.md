@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.1](https://github.com/ecomclub/ecomplus-auth/compare/v1.0.0-rc.0...v1.0.0-rc.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* **emitter:** fix handling instance events ([d39b882](https://github.com/ecomclub/ecomplus-auth/commit/d39b882375c288154a2e421bf2a14c7f1e8096b2))
+
 ## [1.0.0-rc.0](https://github.com/ecomclub/ecomplus-auth/compare/v1.0.0-rc...v1.0.0-rc.0) (2021-01-07)
 
 
