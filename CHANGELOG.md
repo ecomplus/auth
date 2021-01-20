@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.3](https://github.com/ecomplus/auth/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-01-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **instance:** `ecomAuth.session` is undefined
+
+### Features
+
+* **events:** emit new updateAuthentication and updateStore events ([fd800d8](https://github.com/ecomplus/auth/commit/fd800d8c0d622e6386829c4d7ec95e95deb12a6c))
+
+
+### Bug Fixes
+
+* **instance:** session object is internal only (security) ([a9a317b](https://github.com/ecomplus/auth/commit/a9a317b7740fe4201e9578209fb255f4739b066d))
+
 ## [1.0.0-rc.2](https://github.com/ecomplus/auth/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2021-01-19)
 
 
