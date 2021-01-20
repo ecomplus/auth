@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomAuth.html">EcomAuth</a><ul class='methods'><li data-type='method'><a href="EcomAuth.html#checkLogin">checkLogin</a></li><li data-type='method'><a href="EcomAuth.html#createEcomplusSession">createEcomplusSession</a></li><li data-type='method'><a href="EcomAuth.html#fetchAuthentication">fetchAuthentication</a></li><li data-type='method'><a href="EcomAuth.html#fetchStore">fetchStore</a></li><li data-type='method'><a href="EcomAuth.html#getAuthenticationId">getAuthenticationId</a></li><li data-type='method'><a href="EcomAuth.html#getSession">getSession</a></li><li data-type='method'><a href="EcomAuth.html#login">login</a></li><li data-type='method'><a href="EcomAuth.html#logout">logout</a></li><li data-type='method'><a href="EcomAuth.html#requestApi">requestApi</a></li><li data-type='method'><a href="EcomAuth.html#setSession">setSession</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_auth.html">@ecomplus/auth</a></li></ul><h3>Events</h3><ul><li><a href="EcomAuth.html#event:login">login</a></li><li><a href="EcomAuth.html#event:logout">logout</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ecomAuth">ecomAuth</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomAuth.html">EcomAuth</a><ul class='methods'><li data-type='method'><a href="EcomAuth.html#checkLogin">checkLogin</a></li><li data-type='method'><a href="EcomAuth.html#createEcomplusSession">createEcomplusSession</a></li><li data-type='method'><a href="EcomAuth.html#fetchAuthentication">fetchAuthentication</a></li><li data-type='method'><a href="EcomAuth.html#fetchStore">fetchStore</a></li><li data-type='method'><a href="EcomAuth.html#getAuthenticationId">getAuthenticationId</a></li><li data-type='method'><a href="EcomAuth.html#getSession">getSession</a></li><li data-type='method'><a href="EcomAuth.html#login">login</a></li><li data-type='method'><a href="EcomAuth.html#logout">logout</a></li><li data-type='method'><a href="EcomAuth.html#requestApi">requestApi</a></li><li data-type='method'><a href="EcomAuth.html#setSession">setSession</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_auth.html">@ecomplus/auth</a></li></ul><h3>Events</h3><ul><li><a href="EcomAuth.html#event:login">login</a></li><li><a href="EcomAuth.html#event:logout">logout</a></li><li><a href="EcomAuth.html#event:updateAuthentication">updateAuthentication</a></li><li><a href="EcomAuth.html#event:updateStore">updateStore</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ecomAuth">ecomAuth</a></li></ul>
 </nav>
 
 <div id="main">
@@ -420,79 +420,6 @@ const customEcomAuth = new EcomAuth(storeId, lang)</code></pre>
         <li>
             
 <span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".ecomAuth.session"><span class="type-signature">(static) </span>ecomAuth.session<span class="type-signature"> :object</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constructor.js.html">constructor.js</a>, <a href="constructor.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    Authentication session object.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
 
 
         </li>
@@ -2489,6 +2416,306 @@ console.log(session.my_id, session.store_id)</code></pre>
 
 
         
+            
+
+    
+
+    <h4 class="name" id="event:updateAuthentication">updateAuthentication</h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_fetch-and-cache.js.html">lib/fetch-and-cache.js</a>, <a href="lib_fetch-and-cache.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>self</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>ecomAuth.on('updateAuthentication', console.log)</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:updateStore">updateStore</h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_fetch-and-cache.js.html">lib/fetch-and-cache.js</a>, <a href="lib_fetch-and-cache.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>self</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>ecomAuth.on('updateStore', console.log)</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 </article>
 
@@ -2504,7 +2731,7 @@ console.log(session.my_id, session.store_id)</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Jan 19 2021 18:41:36 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Wed Jan 20 2021 15:54:44 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

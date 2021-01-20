@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-session.js - Documentation</title>
+    <title>lib/fetch-and-cache.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-session.js</h1>
+    <h1 class="page-title">lib/fetch-and-cache.js</h1>
     
 
     
@@ -42,55 +42,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { $ecomConfig } from '@ecomplus/utils'
+            <pre class="prettyprint source linenums"><code>export default (args, url, mustSkipSession, sessionField = 'authentication') => {
+  const [self, session, emitter] = args
 
-/**
- * @method
- * @name EcomAuth#setSession
- * @description Set instance session object.
- *
- * @param {object} newSession - Session object to save
- *
- * @returns {self}
- *
- * @example
-
-ecomAuth.setSession(session)
-
- */
-
-export default ([self, session, emitter], newSession) => {
-  const { lang, checkLogin, fetchAuthentication } = self
-
-  for (const prop in newSession) {
-    if (newSession[prop]) {
-      session[prop] = newSession[prop]
-    }
-  }
-  if (session.store_id > 100) {
-    $ecomConfig.set('store_id', session.store_id)
+  if (!mustSkipSession &amp;&amp; session[sessionField] &amp;&amp; session[sessionField]._id) {
+    return Promise.resolve(session[sessionField])
   }
 
-  if (checkLogin()) {
+  return self.requestApi(url).then(({ data }) => {
+    session[sessionField] = data
+
     /**
-     * @event EcomAuth#login
+     * @event EcomAuth#updateAuthentication
      * @type {object}
      * @property {object} self
-     * @example ecomAuth.on('login', console.log)
+     * @example ecomAuth.on('updateAuthentication', console.log)
      */
-    emitter.emit('login', self)
 
-    if (!lang) {
-      fetchAuthentication().then(auth => {
-        if (auth.locale) {
-          self.lang = session.lang = auth.locale
-          $ecomConfig.set('lang', auth.locale)
-        }
-      })
-    }
-  }
+    /**
+     * @event EcomAuth#updateStore
+     * @type {object}
+     * @property {object} self
+     * @example ecomAuth.on('updateStore', console.log)
+     */
+    emitter.emit(`update${sessionField.charAt(0).toUpperCase()}${sessionField.substring(1)}`, self)
 
-  return self
+    const timerField = `__session_${sessionField}_timer`
+    clearTimeout(session[timerField])
+    session[timerField] = setTimeout(() => {
+      session[sessionField] = null
+    }, 30000)
+
+    return data
+  })
 }
 </code></pre>
         </article>
