@@ -17,7 +17,8 @@ ecomAuth.fetchAuthentication().then(authentication => {
 
  */
 
-export default ([self], mustSkipSession) => {
-  const url = `/authentications/${self.session.my_id}.json`
-  return fetchAndCache(self, url, mustSkipSession)
+export default (args, mustSkipSession) => {
+  const [, session] = args
+  const url = `/authentications/${session.my_id}.json`
+  return fetchAndCache(args, url, mustSkipSession)
 }

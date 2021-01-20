@@ -1,5 +1,5 @@
-export default (self, url, mustSkipSession, sessionField = 'authentication') => {
-  const { session, requestApi } = self
+export default (args, url, mustSkipSession, sessionField = 'authentication') => {
+  const [{ requestApi }, session] = args
 
   if (!mustSkipSession && session[sessionField] && session[sessionField]._id) {
     return Promise.resolve(session[sessionField])
@@ -9,8 +9,8 @@ export default (self, url, mustSkipSession, sessionField = 'authentication') => 
     session[sessionField] = data
 
     const timerField = `__session_${sessionField}_timer`
-    clearTimeout(self[timerField])
-    self[timerField] = setTimeout(() => {
+    clearTimeout(session[timerField])
+    session[timerField] = setTimeout(() => {
       session[sessionField] = null
     }, 30000)
 

@@ -15,8 +15,8 @@ ecomAuth.setSession(session)
 
  */
 
-export default ([self, emitter], newSession) => {
-  const { lang, session, checkLogin, fetchAuthentication } = self
+export default ([self, session, emitter], newSession) => {
+  const { lang, checkLogin, fetchAuthentication } = self
 
   for (const prop in newSession) {
     if (newSession[prop]) {

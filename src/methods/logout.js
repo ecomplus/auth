@@ -11,8 +11,8 @@ ecomAuth.logout()
 
  */
 
-export default ([self, emitter]) => {
-  self.session.access_token = ''
+export default ([self, session, emitter]) => {
+  session.access_token = ''
 
   /**
    * @event EcomAuth#logout

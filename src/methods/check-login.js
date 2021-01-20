@@ -13,6 +13,6 @@ if (ecomAuth.checkLogin()) {
 
  */
 
-export default ([{ session }]) => {
+export default ([, session]) => {
   return Date.now() < new Date(session.expires).getTime() && Boolean(session.access_token)
 }

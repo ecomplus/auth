@@ -57,14 +57,7 @@ const EcomAuth = function (storeId, lang) {
    */
   ecomAuth.lang = lang
 
-  /**
-   * Authentication session object.
-   * @memberof EcomAuth
-   * @type {object}
-   */
-  ecomAuth.session = {
-    store_id: ecomAuth.storeId
-  }
+  const session = {}
 
   const emitter = new EventEmitter()
   ;['on', 'off', 'once'].forEach(method => {
@@ -73,7 +66,7 @@ const EcomAuth = function (storeId, lang) {
     }
   })
 
-  const args = [ecomAuth, emitter]
+  const args = [ecomAuth, session, emitter]
 
   this.login = (userOrEmail, password, isMd5Hash) => login(args, userOrEmail, password, isMd5Hash)
 
