@@ -7,7 +7,8 @@ import fetchAndCache from '../lib/fetch-and-cache'
  *
  * @param {boolean} [mustSkipSession=false] - Skips previously fetched result (refresh cache)
  *
- * @returns {Promise<data|error>}
+ * @returns {Promise<authentication|error>} -
+ * [Authentication object]{@link https://developers.e-com.plus/docs/api/#/store/authentications/}
  *
  * @example
 

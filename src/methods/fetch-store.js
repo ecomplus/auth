@@ -7,7 +7,8 @@ import fetchAndCache from '../lib/fetch-and-cache'
  *
  * @param {boolean} [mustSkipSession=false] - Skips previously fetched result (refresh cache)
  *
- * @returns {Promise<data|error>}
+ * @returns {Promise<store|error>} -
+ * [Store object]{@link https://developers.e-com.plus/docs/api/#/store/stores/}
  *
  * @example
 
