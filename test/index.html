@@ -9,19 +9,16 @@
 </head>
 
 <body>
+  <script src="ecom-auth.min.js"></script>
 
+  <script>
+    ecomAuth.on('login', self => {
+      console.log('Login OK!', self)
+      ecomAuth.createEcomplusSession().then(r => console.log(r))
+    })
+    ecomAuth.on('logout', self => {
+      console.log('Out!', self)
+    })
+  </script>
 </body>
-<script src="ecom-auth.min.js"></script>
-<script>
-  EcomAuth.on('login', self => {
-    console.log('Login OK!', self)
-    console.log('Criando sessao')
-    ecomAuth.newSession().then(r => console.log(r))
-  })
-  EcomAuth.on('logout', self => {
-    console.log('Logou Ok!', self)
-  })
-
-</script>
-
 </html>
