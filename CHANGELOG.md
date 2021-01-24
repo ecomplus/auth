@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.5](https://github.com/ecomplus/auth/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-01-24)
+
+
+### Bug Fixes
+
+* **pkg:** fix entry files path (cdn and node) ([2fd8be4](https://github.com/ecomplus/auth/commit/2fd8be420dd753363deac66e758827bc960aa5ac))
+
 ## [1.0.0-rc.4](https://github.com/ecomplus/auth/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-01-24)
 
 ## [1.0.0-rc.3](https://github.com/ecomplus/auth/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-01-20)
