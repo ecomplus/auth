@@ -22,6 +22,9 @@ const config = {
     port: 9301,
     open: true
   },
+  resolve: {
+    mainFields: ['module', 'browser', 'main']
+  },
   module: {
     rules: [{
       test: /\.m?js$/,
