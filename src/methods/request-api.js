@@ -28,12 +28,12 @@ export default ([{ checkLogin }, session], url, method, data, axiosConfig) => {
   }
 
   return store({
-    ...axiosConfig,
     url,
     storeId: session.store_id,
     authenticationId: session.my_id,
     accessToken: session.access_token,
     method,
-    data
+    data,
+    axiosConfig
   })
 }
