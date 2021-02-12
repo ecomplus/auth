@@ -19,7 +19,7 @@ ecomAuth.fetchStore().then(store => {
  */
 
 export default (args, mustSkipSession) => {
-  const [, session] = args
-  const url = `/stores/${session.store_id}.json`
+  const [{ checkLogin }, session] = args
+  const url = `/stores/${(checkLogin ? 'me' : session.store_id)}.json`
   return fetchAndCache(args, url, mustSkipSession, 'store')
 }
