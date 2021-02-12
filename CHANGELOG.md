@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomplus/auth/compare/v1.0.0...v1.0.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* **fetch-store:** call /stores/me when authenticated ([f2d17df](https://github.com/ecomplus/auth/commit/f2d17dfbb7fd47ad58e4775f00d4ebf4b04fb343))
+
 ## [1.0.0](https://github.com/ecomplus/auth/compare/v1.0.0-rc.6...v1.0.0) (2021-02-12)
 
 ## [1.0.0-rc.6](https://github.com/ecomplus/auth/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-01-28)
