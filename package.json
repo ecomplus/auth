@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "axios": "^1.4.0",
+    "axios": "^1.5.0",
     "blueimp-md5": "^2.19.0",
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.10",
+    "@babel/core": "^7.22.11",
     "@babel/preset-env": "^7.22.10",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
