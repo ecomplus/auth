@@ -34,22 +34,22 @@
     "@ecomplus/utils": "^1.4.1"
   },
   "optionalDependencies": {
-    "core-js": "^3.36.0"
+    "core-js": "^3.36.1"
   },
   "dependencies": {
-    "@ecomplus/client": "^2.2.1",
+    "@ecomplus/client": "^2.3.1",
     "axios": "^1.6.8",
     "blueimp-md5": "^2.19.0",
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@ecomplus/utils": "^1.4.1",
     "babel-loader": "^8.3.0",
-    "core-js": "^3.36.0",
+    "core-js": "^3.36.1",
     "docdash": "^2.0.2",
     "husky": "^3.1.0",
     "jsdoc": "^4.0.2",
