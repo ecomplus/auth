@@ -34,11 +34,11 @@
     "@ecomplus/utils": "^1.4.1"
   },
   "optionalDependencies": {
-    "core-js": "^3.37.0"
+    "core-js": "^3.37.1"
   },
   "dependencies": {
     "@ecomplus/client": "^2.3.1",
-    "axios": "^1.6.8",
+    "axios": "^1.7.1",
     "blueimp-md5": "^2.19.0",
     "eventemitter3": "^5.0.1"
   },
@@ -49,12 +49,12 @@
     "@commitlint/config-conventional": "^17.8.1",
     "@ecomplus/utils": "^1.4.1",
     "babel-loader": "^8.3.0",
-    "core-js": "^3.37.0",
+    "core-js": "^3.37.1",
     "docdash": "^2.0.2",
     "husky": "^3.1.0",
     "jsdoc": "^4.0.3",
     "standard": "^17.1.0",
-    "commit-and-tag-version": "^9.5.0",
+    "commit-and-tag-version": "^9.6.0",
     "webpack": "^4.47.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.3"
